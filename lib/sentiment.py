@@ -1,5 +1,4 @@
 import stanza
-import sys
 
 nlp = stanza.Pipeline('en', verbose=False, model_dir="./stanza")
 
