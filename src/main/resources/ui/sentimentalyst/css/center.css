@@ -5,7 +5,7 @@
   src: url("../fonts/Varela/VarelaRound-Regular.ttf") format("truetype");
 }
 
-#textarea {
+#sentarea {
   -fx-background-color: #3d3d3d;
   -fx-background-radius: 15px;
   -fx-border-color: #222;
@@ -14,11 +14,11 @@
   -fx-font-family: "Varela Round";
 }
 
-#textarea .text {
+#sentarea .text {
   -fx-fill: #ddd;
 }
 
-#textarea2 {
+#langarea {
   -fx-background-color: #3d3d3d;
   -fx-background-radius: 15px;
   -fx-border-color: #222;
@@ -27,6 +27,6 @@
   -fx-font-family: "Varela Round";
 }
 
-#textarea2 .text {
+#langarea .text {
   -fx-fill: #ddd;
 }

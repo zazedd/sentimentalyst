@@ -2,7 +2,15 @@ import stanza
 
 nlp = stanza.Pipeline('en', verbose=False, model_dir="./stanza")
 
-doc = nlp(input())
+inpt = ''
+while True:
+    try:
+        line = input()
+        inpt += line
+    except EOFError:
+        break
+
+doc = nlp(inpt)
 
 sum = 0
 lasti = 0
@@ -17,14 +25,14 @@ score = sum / lasti
 print(score)
 
 if (lasti == 1): 
-    if (score == 0): print("Triste")
-    elif (score == 1): print("Neutro")
-    elif (score == 2): print("Feliz")
+    if (score == 0): print("Sad")
+    elif (score == 1): print("Neutral")
+    elif (score == 2): print("Happy")
 
-elif (score < 0.40): print("Muito Triste")
-elif (score < 0.90): print("Triste")
-elif (score < 1.10): print("Neutro")
-elif (score < 1.60): print("Feliz")
-elif (score < 2): print("Muito Feliz")
+elif (score < 0.40): print("Very Sad")
+elif (score < 0.90): print("Sad")
+elif (score < 1.10): print("Neutral")
+elif (score < 1.60): print("Happy")
+elif (score < 2): print("Very Happy")
 
 
