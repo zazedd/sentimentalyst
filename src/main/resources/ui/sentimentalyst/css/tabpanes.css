@@ -17,9 +17,9 @@
 }
 
 .tab:selected {
-  -fx-background-color: #393939;
-  -fx-background-insets: 4 3 3 3;
-  -fx-background-radius: 15px;
+  -fx-background-color: #333;
+  -fx-background-insets: 7 6 -50 6;
+  -fx-background-radius: 25px;
 }
 
 .tab:focused {
@@ -41,7 +41,7 @@
 }
 
 .tab:hover {
-  -fx-background-insets: 4 3 3 3;
   -fx-background-color: #3d3d3d;
-  -fx-background-radius: 15px;
+  -fx-background-insets: 7 6 -50 6;
+  -fx-background-radius: 25px;
 }

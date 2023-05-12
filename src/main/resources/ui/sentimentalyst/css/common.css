@@ -1,0 +1,21 @@
+@import "fonts.css";
+
+.root {
+  -fx-font-family: "Unbounded";
+}
+
+#label-area {
+  -fx-font-size: 13pt;
+}
+
+#labels-right {
+  -fx-font-size: 12pt;
+}
+
+#labelsentiment {
+  -fx-font-size: 16pt;
+}
+
+#labellang {
+  -fx-font-size: 16pt;
+}

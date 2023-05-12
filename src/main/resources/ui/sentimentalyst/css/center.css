@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Varela Round";
+  font-weight: normal;
+  font-display: swap;
+  src: url("../fonts/Varela/VarelaRound-Regular.ttf") format("truetype");
+}
+
+#textarea {
+  -fx-background-color: #3d3d3d;
+  -fx-background-radius: 15px;
+  -fx-border-color: #222;
+  -fx-border-radius: 15px;
+  -fx-font-size: 12pt;
+  -fx-font-family: "Varela Round";
+}
+
+#textarea .text {
+  -fx-fill: #ddd;
+}
+
+#textarea2 {
+  -fx-background-color: #3d3d3d;
+  -fx-background-radius: 15px;
+  -fx-border-color: #222;
+  -fx-border-radius: 15px;
+  -fx-font-size: 12pt;
+  -fx-font-family: "Varela Round";
+}
+
+#textarea2 .text {
+  -fx-fill: #ddd;
+}
