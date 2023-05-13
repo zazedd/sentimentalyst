@@ -1,6 +1,5 @@
 package ui.sentimentalyst;
 
-import java.io.*;
 import java.util.Properties;
 import java.util.*;
 
@@ -15,10 +14,6 @@ import edu.stanford.nlp.trees.Tree;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import org.fxmisc.richtext.InlineCssTextArea;
-import org.fxmisc.richtext.StyleClassedTextArea;
-import org.fxmisc.richtext.model.StyleSpans;
-import org.fxmisc.richtext.model.StyleSpansBuilder;
-import org.fxmisc.richtext.model.StyledSegment;
 
 public class Sentiment {
 
