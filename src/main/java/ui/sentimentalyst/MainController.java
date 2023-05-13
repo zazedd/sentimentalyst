@@ -6,6 +6,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import org.fxmisc.richtext.InlineCssTextArea;
 
+import static ui.sentimentalyst.Sentiment.updateSentiment;
+
 public class MainController {
 
     @FXML
@@ -23,14 +25,9 @@ public class MainController {
     @FXML
     public void sentimentHandler (KeyEvent event) {
         String text = sentarea.getText();
-        String result = switch (event.getCode()) {
-            case ENTER, PERIOD, EXCLAMATION_MARK -> Sentiment.getSentimentResult(text, labelsentiment).sentimentScore;
-            default -> "?";
-        };
-
-        if (result.equals("?"))
-            labelsentiment.setTextFill(Color.valueOf("#ffffff"));
-
-        labelsentiment.setText(result);
+        switch (event.getCode()) {
+            case ENTER, PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, false);
+            default -> updateSentiment(sentarea, labelsentiment, true);
+        }
     }
 }
