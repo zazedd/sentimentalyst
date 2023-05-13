@@ -106,21 +106,20 @@ public class Sentiment {
                         sentarea.setStyle(current, next, "-rtfx-background-color: #d61327");
                     }
                     case 1 -> {
-                        System.out.println("Changing line: " + line + " to red");
+                        System.out.println("Changing line: " + line + " to light red");
                         sentarea.setStyle(current, next, "-rtfx-background-color: #e37b7c");
                     }
                     case 2 -> {
-                        System.out.println("Changing line: " + line + " to nothing");
+                        System.out.println("Changing line: " + line + " to transparent");
                         sentarea.setStyle(current, next, "-rtfx-background-color: transparent");
                     }
                     case 3 -> {
-                        System.out.println("Changing line: " + line + " to green");
+                        System.out.println("Changing line: " + line + " to light green");
                         sentarea.setStyle(current, next, "-rtfx-background-color: #6fe069; -fx-fill: black");
                     }
                     case 4 -> {
                         System.out.println("Changing line: " + line + " to green");
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #48f542");
-                        sentarea.setStyle(current, next, "-rtfx-fill-color: black");
+                        sentarea.setStyle(current, next, "-rtfx-background-color: #48f542 -fx-fill: black");
                     }
                     default -> {
                         sentarea.setStyle(current, next, "-rtfx-background-color: transparent");
