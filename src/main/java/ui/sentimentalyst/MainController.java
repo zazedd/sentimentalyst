@@ -6,6 +6,7 @@ import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.InlineCssTextArea;
 
 import static ui.sentimentalyst.Sentiment.updateSentiment;
+import static ui.sentimentalyst.Sentiment.updateSentimentTyping;
 
 public class MainController {
 
@@ -25,8 +26,9 @@ public class MainController {
     public void sentimentHandler (KeyEvent event) {
         String text = sentarea.getText();
         switch (event.getCode()) {
-            case ENTER, PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, false);
-            default -> updateSentiment(sentarea, labelsentiment, true);
+            case ENTER -> updateSentiment(sentarea, labelsentiment, true);
+            case PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, false);
+            default -> updateSentimentTyping(labelsentiment);
         }
     }
 }

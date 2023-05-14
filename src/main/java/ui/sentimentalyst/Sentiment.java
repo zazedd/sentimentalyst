@@ -89,11 +89,11 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentimentTextArea(ArrayListPair res, InlineCssTextArea sentarea, String text) {
+    public static void updateSentimentTextArea(ArrayListPair res, InlineCssTextArea sentarea, String text, boolean isEnter) {
         String sentence, line;
         int score, current, next;
         for (int i = 0; i < res.a.size(); i++) {
-            sentence = res.b.get(i).substring(0, res.b.get(i).length() - 1);
+            sentence = (isEnter) ? res.b.get(i).substring(0, res.b.get(i).length() - 1) : res.b.get(i);
             System.out.println(sentence);
             current = text.indexOf(sentence);
             while (current >= 0) {
@@ -130,13 +130,7 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, boolean isTyping) {
-        if (isTyping) {
-            labelsentiment.setTextFill(Color.valueOf("#ffffff"));
-            labelsentiment.setText("?");
-            return;
-        }
-
+    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, boolean isEnter) {
         String text = sentarea.getText();;
         if (text == null || text.length() == 0)
             return;
@@ -144,7 +138,13 @@ public class Sentiment {
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair res = execLangModel(newText);
         updateSentimentLabel(res.a, labelsentiment);
-        updateSentimentTextArea(res, sentarea, text);
+        updateSentimentTextArea(res, sentarea, text, isEnter);
+    }
+
+    public static void updateSentimentTyping(Label labelsentiment) {
+        labelsentiment.setTextFill(Color.valueOf("#ffffff"));
+        labelsentiment.setText("?");
+        return;
     }
 }
 
