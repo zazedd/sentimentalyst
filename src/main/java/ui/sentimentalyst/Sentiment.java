@@ -17,7 +17,7 @@ import org.fxmisc.richtext.InlineCssTextArea;
 
 public class Sentiment {
 
-    public static ArrayListPair execLangModel(String text) {
+    public static ArrayListPair<Integer, String> execLangModel(String text) {
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize,parse,sentiment");
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
@@ -89,7 +89,7 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentimentTextArea(ArrayListPair res, InlineCssTextArea sentarea, String text, boolean isEnter) {
+    public static void updateSentimentTextArea(ArrayListPair<Integer, String> res, InlineCssTextArea sentarea, String text, boolean isEnter) {
         String sentence, line;
         int score, current, next;
         for (int i = 0; i < res.a.size(); i++) {
@@ -148,12 +148,3 @@ public class Sentiment {
     }
 }
 
-class ArrayListPair {
-    ArrayList<Integer> a;
-    ArrayList<String> b;
-
-    public ArrayListPair(ArrayList<Integer> a, ArrayList<String> b) {
-        this.a = a;
-        this.b = b;
-    }
-}
