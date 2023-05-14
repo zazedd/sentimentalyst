@@ -111,7 +111,7 @@ public class Sentiment {
                     }
                     case 2 -> {
                         System.out.println("Changing line: " + line + " to transparent");
-                        sentarea.setStyle(current, next, "-rtfx-background-color: transparent");
+                        sentarea.setStyle(current, next, "-rtfx-background-color: #a19f9f; -fx-fill: black");
                     }
                     case 3 -> {
                         System.out.println("Changing line: " + line + " to light green");

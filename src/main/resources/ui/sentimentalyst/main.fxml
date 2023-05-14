@@ -98,6 +98,14 @@
                   </AnchorPane>
                </content>
           </Tab>
+            <Tab id="tab3" closable="false" text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="30" strokeWidth="0.5" translateX="-4.0" translateY="3.0" />
+               </graphic>
+            </Tab>
         </tabs>
          <opaqueInsets>
             <Insets />

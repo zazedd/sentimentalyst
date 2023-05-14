@@ -24,7 +24,6 @@ public class MainController {
 
     @FXML
     public void sentimentHandler (KeyEvent event) {
-        String text = sentarea.getText();
         switch (event.getCode()) {
             case ENTER -> updateSentiment(sentarea, labelsentiment, true);
             case PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, false);
