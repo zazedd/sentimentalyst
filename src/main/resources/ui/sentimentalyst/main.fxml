@@ -73,7 +73,7 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </padding>
                               </InlineCssTextArea>
-                              <Text id="label-area" fill="#dddddd" layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert the text you want to identify:" />
+                              <Text id="label-area" fill="#dddddd" layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert the text you want to evaluate:" />
                               <Line endX="244.0" endY="-130.0" layoutX="971.0" layoutY="192.0" startX="14.0" startY="-130.0" stroke="#333333" strokeWidth="5.0" />
                            </children>
                         </Pane>
