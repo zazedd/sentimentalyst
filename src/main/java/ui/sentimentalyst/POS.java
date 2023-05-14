@@ -41,39 +41,38 @@ public class POS {
     }
 
     public static void updatePOSStatistics(ArrayListPair<String, Character> res, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat) {
-        int nounCount, verbCount, wordCount, conjCount, adjCount, advCount;
-        wordCount = Integer.parseInt(wordstat.getText());
+        int wordCount = 0, nounCount = 0, verbCount = 0, conjCount = 0, adjCount = 0, advCount = 0;
         for (int i = 0; i < res.a.size(); i++) {
             String token = res.a.get(i);
             if (token.equals(".") || token.equals("!") || token.equals(",") || token.equals("?")) continue;
+
             wordCount++;
             switch (res.b.get(i)) {
                 case 'N' -> {
-                    nounCount = Integer.parseInt(nounstat.getText()) + 1;
-                    nounstat.setText(Integer.toString(nounCount));
+                    nounCount++;
                 }
                 case 'V' -> {
-                    verbCount = Integer.parseInt(verbstat.getText()) + 1;
-                    verbstat.setText(Integer.toString(verbCount));
+                    verbCount++;
                 }
                 case 'I', 'C' -> {
-                    conjCount = Integer.parseInt(conjstat.getText()) + 1;
-                    conjstat.setText(Integer.toString(conjCount));
+                    conjCount++;
                 }
                 case 'J' -> {
-                    adjCount = Integer.parseInt(adjstat.getText()) + 1;
-                    adjstat.setText(Integer.toString(adjCount));
+                    adjCount++;
                 }
                 case 'R' -> {
-                    advCount = Integer.parseInt(advstat.getText()) + 1;
-                    advstat.setText(Integer.toString(advCount));
+                    advCount++;
                 }
-                default -> {
-                }
+                default -> {}
             }
-
-            wordstat.setText(Integer.toString(wordCount));
         }
+
+        wordstat.setText(Integer.toString(wordCount));
+        nounstat.setText(Integer.toString(nounCount));
+        verbstat.setText(Integer.toString(verbCount));
+        conjstat.setText(Integer.toString(conjCount));
+        adjstat.setText(Integer.toString(adjCount));
+        advstat.setText(Integer.toString(advCount));
     }
 
     /*public static void updateSentimentTextArea(ArrayListPair<String, String> res, InlineCssTextArea sentarea, String text, boolean isEnter) {
