@@ -1,22 +1,17 @@
 package ui.sentimentalyst;
 
-import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.neural.rnn.RNNCoreAnnotations;
-import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
-import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
-import edu.stanford.nlp.trees.Tree;
-import edu.stanford.nlp.util.CoreMap;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
 import org.fxmisc.richtext.InlineCssTextArea;
 
 import java.util.ArrayList;
 import java.util.Properties;
 
 public class POS {
+
+    //TODO Pronouns
 
     public static ArrayListPair<String, Character> execPOSModel(String text) {
         Properties props = new Properties();
@@ -77,12 +72,12 @@ public class POS {
 
     public static void updatePOStextArea(ArrayListPair<String, Character> res, String text, InlineCssTextArea posarea) {
         String line;
-        int current, next;
+        int current, next, searchFrom = 0;
         for (int i = 0; i < res.a.size(); i++) {
             String token = res.a.get(i);
             if (token.equals(".") || token.equals("!") || token.equals(",") || token.equals("?")) continue;
 
-            current = text.indexOf(token);
+            current = text.indexOf(token, searchFrom);
             while (current >= 0) {
                 next = current + token.length();
                 line = text.substring(current, next);
@@ -90,30 +85,34 @@ public class POS {
                 switch (res.b.get(i)) {
                     case 'N' -> {
                         System.out.println("Changing line: " + line + " to red");
-                        posarea.setStyle(current, next, "-rtfx-background-color: #d61327");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #25d9fe");
                     }
                     case 'V' -> {
                         System.out.println("Changing line: " + line + " to light red");
-                        posarea.setStyle(current, next, "-rtfx-background-color: #e37b7c");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #f5410e");
                     }
                     case 'I', 'C' -> {
                         System.out.println("Changing line: " + line + " to transparent");
-                        posarea.setStyle(current, next, "-rtfx-background-color: #a19f9f; -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #ca0ef5; -fx-fill: black");
                     }
                     case 'J' -> {
                         System.out.println("Changing line: " + line + " to light green");
-                        posarea.setStyle(current, next, "-rtfx-background-color: #6fe069; -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #ffe000; -fx-fill: black");
                     }
                     case 'R' -> {
                         System.out.println("Changing line: " + line + " to green");
-                        posarea.setStyle(current, next, "-rtfx-background-color: #48f542 -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #00ff0e; -fx-fill: black");
                     }
                     default -> {
                         posarea.setStyle(current, next, "-rtfx-background-color: transparent");
                     }
                 }
-                current = text.indexOf(token, next);
+
+                searchFrom += token.length();
+                System.out.println(searchFrom);
+                current = text.indexOf(token, searchFrom);
             }
+
         }
     }
 
