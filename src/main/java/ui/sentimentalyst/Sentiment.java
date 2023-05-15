@@ -11,6 +11,7 @@ import edu.stanford.nlp.pipeline.*;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 
 import edu.stanford.nlp.trees.Tree;
+import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import org.fxmisc.richtext.InlineCssTextArea;
@@ -130,21 +131,23 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, boolean isEnter) {
+    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress, boolean isEnter) {
         String text = sentarea.getText();;
         if (text == null || text.length() == 0)
             return;
 
+        progress.setStyle("-fx-opacity: 0");
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair res = execLangModel(newText);
         updateSentimentLabel(res.a, labelsentiment);
         updateSentimentTextArea(res, sentarea, text, isEnter);
     }
 
-    public static void updateSentimentTyping(Label labelsentiment) {
+    public static void updateSentimentTyping(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress) {
         labelsentiment.setTextFill(Color.valueOf("#ffffff"));
+        sentarea.setStyle(0, sentarea.getText().length(), "-rtfx-background-color: transparent; -fx-fill: white");
         labelsentiment.setText("?");
-        return;
+        progress.setStyle("-fx-opacity: 1");
     }
 }
 

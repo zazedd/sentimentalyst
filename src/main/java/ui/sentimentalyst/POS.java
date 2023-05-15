@@ -75,46 +75,47 @@ public class POS {
         advstat.setText(Integer.toString(advCount));
     }
 
-    /*public static void updateSentimentTextArea(ArrayListPair<String, String> res, InlineCssTextArea sentarea, String text, boolean isEnter) {
-        String sentence, line;
-        int score, current, next;
+    public static void updatePOStextArea(ArrayListPair<String, Character> res, String text, InlineCssTextArea posarea) {
+        String line;
+        int current, next;
         for (int i = 0; i < res.a.size(); i++) {
-            sentence = (isEnter) ? res.b.get(i).substring(0, res.b.get(i).length() - 1) : res.b.get(i);
-            System.out.println(sentence);
-            current = text.indexOf(sentence);
+            String token = res.a.get(i);
+            if (token.equals(".") || token.equals("!") || token.equals(",") || token.equals("?")) continue;
+
+            current = text.indexOf(token);
             while (current >= 0) {
-                next = current + sentence.length();
-                score = res.a.get(i);
+                next = current + token.length();
                 line = text.substring(current, next);
-                switch (score) {
-                    case 0 -> {
+
+                switch (res.b.get(i)) {
+                    case 'N' -> {
                         System.out.println("Changing line: " + line + " to red");
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #d61327");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #d61327");
                     }
-                    case 1 -> {
+                    case 'V' -> {
                         System.out.println("Changing line: " + line + " to light red");
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #e37b7c");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #e37b7c");
                     }
-                    case 2 -> {
+                    case 'I', 'C' -> {
                         System.out.println("Changing line: " + line + " to transparent");
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #a19f9f; -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #a19f9f; -fx-fill: black");
                     }
-                    case 3 -> {
+                    case 'J' -> {
                         System.out.println("Changing line: " + line + " to light green");
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #6fe069; -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #6fe069; -fx-fill: black");
                     }
-                    case 4 -> {
+                    case 'R' -> {
                         System.out.println("Changing line: " + line + " to green");
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #48f542 -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #48f542 -fx-fill: black");
                     }
                     default -> {
-                        sentarea.setStyle(current, next, "-rtfx-background-color: transparent");
+                        posarea.setStyle(current, next, "-rtfx-background-color: transparent");
                     }
                 }
-                current = text.indexOf(sentence, next);
+                current = text.indexOf(token, next);
             }
         }
-    }*/
+    }
 
     public static void updatePOS(InlineCssTextArea posarea, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat) {
         String text = posarea.getText();;
@@ -124,5 +125,10 @@ public class POS {
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair<String, Character> res = execPOSModel(newText);
         updatePOSStatistics(res, wordstat, nounstat, verbstat, conjstat, adjstat, advstat);
+        updatePOStextArea(res, text, posarea);
+    }
+
+    public static void updatePOSTyping(InlineCssTextArea sentarea) {
+        sentarea.setStyle(0, sentarea.getText().length(), "-rtfx-background-color: transparent; -fx-fill: white");
     }
 }

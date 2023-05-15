@@ -5,6 +5,7 @@ module ui.sentimentalyst {
     requires stanford.corenlp;
     requires de.jensd.fx.glyphs.commons;
     requires de.jensd.fx.glyphs.fontawesome;
+    requires MaterialFX;
 
     opens ui.sentimentalyst to javafx.fxml;
     exports ui.sentimentalyst;
