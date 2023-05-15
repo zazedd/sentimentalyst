@@ -91,7 +91,7 @@ public class Sentiment {
     }
 
     public static void updateSentimentTextArea(ArrayListPair<Integer, String> res, InlineCssTextArea sentarea, String text, boolean isEnter) {
-        String sentence, line;
+        String sentence;
         int score, current, next;
         for (int i = 0; i < res.a.size(); i++) {
             sentence = (isEnter) ? res.b.get(i).substring(0, res.b.get(i).length() - 1) : res.b.get(i);
@@ -100,26 +100,20 @@ public class Sentiment {
             while (current >= 0) {
                 next = current + sentence.length();
                 score = res.a.get(i);
-                line = text.substring(current, next);
                 switch (score) {
                     case 0 -> {
-                        System.out.println("Changing line: " + line + " to red");
                         sentarea.setStyle(current, next, "-rtfx-background-color: #d61327");
                     }
                     case 1 -> {
-                        System.out.println("Changing line: " + line + " to light red");
                         sentarea.setStyle(current, next, "-rtfx-background-color: #e37b7c");
                     }
                     case 2 -> {
-                        System.out.println("Changing line: " + line + " to transparent");
                         sentarea.setStyle(current, next, "-rtfx-background-color: #a19f9f; -fx-fill: black");
                     }
                     case 3 -> {
-                        System.out.println("Changing line: " + line + " to light green");
                         sentarea.setStyle(current, next, "-rtfx-background-color: #6fe069; -fx-fill: black");
                     }
                     case 4 -> {
-                        System.out.println("Changing line: " + line + " to green");
                         sentarea.setStyle(current, next, "-rtfx-background-color: #48f542 -fx-fill: black");
                     }
                     default -> {

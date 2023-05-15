@@ -71,7 +71,6 @@ public class POS {
     }
 
     public static void updatePOStextArea(ArrayListPair<String, Character> res, String text, InlineCssTextArea posarea) {
-        String line;
         int current, next, searchFrom = 0;
         for (int i = 0; i < res.a.size(); i++) {
             String token = res.a.get(i);
@@ -80,27 +79,21 @@ public class POS {
             current = text.indexOf(token, searchFrom);
             while (current >= 0) {
                 next = current + token.length();
-                line = text.substring(current, next);
 
                 switch (res.b.get(i)) {
                     case 'N' -> {
-                        System.out.println("Changing line: " + line + " to red");
                         posarea.setStyle(current, next, "-rtfx-background-color: #25d9fe");
                     }
                     case 'V' -> {
-                        System.out.println("Changing line: " + line + " to light red");
-                        posarea.setStyle(current, next, "-rtfx-background-color: #f5410e");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #f5410e; -fx-fill: black");
                     }
                     case 'I', 'C' -> {
-                        System.out.println("Changing line: " + line + " to transparent");
                         posarea.setStyle(current, next, "-rtfx-background-color: #ca0ef5; -fx-fill: black");
                     }
                     case 'J' -> {
-                        System.out.println("Changing line: " + line + " to light green");
                         posarea.setStyle(current, next, "-rtfx-background-color: #ffe000; -fx-fill: black");
                     }
                     case 'R' -> {
-                        System.out.println("Changing line: " + line + " to green");
                         posarea.setStyle(current, next, "-rtfx-background-color: #00ff0e; -fx-fill: black");
                     }
                     default -> {
