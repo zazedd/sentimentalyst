@@ -39,7 +39,16 @@ public class MainController {
     Label advstat;
 
     @FXML
+    Label prostat;
+
+    @FXML
+    Label detstat;
+
+    @FXML
     MFXProgressSpinner progress;
+
+    @FXML
+    MFXProgressSpinner progress2;
 
     @FXML
     public void sentimentHandler (KeyEvent event) {
@@ -52,7 +61,7 @@ public class MainController {
 
     public void posHandler (KeyEvent event) {
         switch (event.getCode()) {
-            case ENTER, PERIOD, EXCLAMATION_MARK -> updatePOS(posarea, wordstat, nounstat, verbstat, conjstat, adjstat, advstat);
+            case ENTER, PERIOD, EXCLAMATION_MARK -> updatePOS(posarea, wordstat, nounstat, verbstat, conjstat, adjstat, advstat, prostat, detstat);
             default -> updatePOSTyping(sentarea);
         }
     }

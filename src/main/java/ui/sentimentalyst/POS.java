@@ -16,6 +16,7 @@ public class POS {
     public static ArrayListPair<String, Character> execPOSModel(String text) {
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize,pos");
+        // Fazer isto fora desta função para não ficar tão lento
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
         CoreDocument document = pipeline.processToCoreDocument(text);
@@ -35,7 +36,7 @@ public class POS {
         return new ArrayListPair<>(tokens, tags);
     }
 
-    public static void updatePOSStatistics(ArrayListPair<String, Character> res, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat) {
+    public static void updatePOSStatistics(ArrayListPair<String, Character> res, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat, Label prostat, Label detstat) {
         int wordCount = 0, nounCount = 0, verbCount = 0, conjCount = 0, adjCount = 0, advCount = 0;
         for (int i = 0; i < res.a.size(); i++) {
             String token = res.a.get(i);

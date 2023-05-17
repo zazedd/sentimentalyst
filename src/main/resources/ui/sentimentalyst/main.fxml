@@ -114,40 +114,45 @@
                               <Line endX="244.0" endY="-130.0" layoutX="971.0" layoutY="192.0" startX="14.0" startY="-130.0" stroke="#333333" strokeWidth="5.0" />
                            </children>
                         </Pane>
-                        <GridPane alignment="CENTER" layoutX="985.0" layoutY="65.0" prefHeight="661.0" prefWidth="226.0" AnchorPane.leftAnchor="985.0" AnchorPane.topAnchor="60.0">
+                        <GridPane alignment="CENTER" layoutX="985.0" layoutY="65.0" prefHeight="661.0" prefWidth="226.0" AnchorPane.leftAnchor="985.0" AnchorPane.topAnchor="15.0">
                            <columnConstraints>
                               <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="65.0" minHeight="65.0" prefHeight="65.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <Label text="Words:" textFill="WHITE" />
-                              <Label fx:id="wordstat" alignment="BOTTOM_CENTER" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                              <Label style="-fx-text-fill: #25D9FE;" text="Nouns:" textFill="WHITE" GridPane.rowIndex="2" />
-                              <Label style="-fx-text-fill: #F5410E;" text="Verbs:" textFill="WHITE" GridPane.rowIndex="4" />
-                              <Label fx:id="nounstat" style="-fx-text-fill: #25D9FE;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                              <Label fx:id="verbstat" style="-fx-text-fill: #F5410E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
-                              <Label style="-fx-text-fill: #CA0EF5;" text="Conjuntives:" textFill="WHITE" GridPane.rowIndex="6" />
-                              <Label fx:id="conjstat" style="-fx-text-fill: #CA0EF5;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
-                              <Label style="-fx-text-fill: #FFE000;" text="Adjectives:" textFill="WHITE" GridPane.rowIndex="8" />
-                              <Label fx:id="adjstat" style="-fx-text-fill: #FFE000;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
-                              <Label style="-fx-text-fill: #00FF0E;" text="Adverbs:" textFill="WHITE" GridPane.rowIndex="10" />
-                              <Label fx:id="advstat" style="-fx-text-fill: #00FF0E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
+                              <Label fx:id="wordstat" alignment="BOTTOM_CENTER" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin></Label>
+                              <Label style="-fx-text-fill: #25D9FE;" text="Nouns:" textFill="WHITE" GridPane.rowIndex="1" />
+                              <Label style="-fx-text-fill: #F5410E;" text="Verbs:" textFill="WHITE" GridPane.rowIndex="2" />
+                              <Label fx:id="nounstat" style="-fx-text-fill: #25D9FE;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label fx:id="verbstat" style="-fx-text-fill: #F5410E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <Label style="-fx-text-fill: #DAF7A6;" text="Conjuntives:" textFill="WHITE" GridPane.rowIndex="3" />
+                              <Label fx:id="conjstat" style="-fx-text-fill: #DAF7A6;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                              <Label style="-fx-text-fill: #FFE000;" text="Adjectives:" textFill="WHITE" GridPane.rowIndex="4" />
+                              <Label fx:id="adjstat" style="-fx-text-fill: #FFE000;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                              <Label style="-fx-text-fill: #00FF0E;" text="Adverbs:" textFill="WHITE" GridPane.rowIndex="5" />
+                              <Label fx:id="advstat" style="-fx-text-fill: #00FF0E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                              <Label style="-fx-text-fill: #CA0EF5;" text="Pronouns" GridPane.rowIndex="6" />
+                              <Label fx:id="prostat" style="-fx-text-fill: #CA0EF5;" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                              <Label style="-fx-text-fill: FF0000;" text="Determinants" GridPane.rowIndex="7" />
+                              <Label fx:id="detstat" style="-fx-text-fill: FF0000;" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                              <MFXProgressSpinner fx:id="progress2" opacity="0.0" prefHeight="35.0" prefWidth="30.0" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="BOTTOM" />
                            </children>
                            <padding>
-                              <Insets bottom="25.0" left="15.0" right="15.0" />
+                              <Insets bottom="15.0" left="15.0" right="15.0" />
                            </padding>
                         </GridPane>
                         <Label layoutX="1061.0" layoutY="22.0" scaleX="1.25" scaleY="1.25" text="Statistics" textFill="WHITE" />
@@ -155,7 +160,7 @@
                   </AnchorPane>
                </content>
           </Tab>
-            <Tab id="tab3" closable="false" text="Untitled Tab">
+            <Tab id="tab3" fx:id="infoTab" closable="false" text="Untitled Tab">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
