@@ -8,16 +8,22 @@ import org.fxmisc.richtext.InlineCssTextArea;
 
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class POS {
 
     //TODO Pronouns
+    static Properties props;
+    static StanfordCoreNLP pipeline;
+
+    public static void initializePOSPipeline() {
+        props = new Properties();
+        props.setProperty("annotators", "tokenize,pos");
+        pipeline = new StanfordCoreNLP(props);
+    }
 
     public static ArrayListPair<String, Character> execPOSModel(String text) {
-        Properties props = new Properties();
-        props.setProperty("annotators", "tokenize,pos");
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
-
         CoreDocument document = pipeline.processToCoreDocument(text);
 
         int i = 0;
@@ -71,24 +77,27 @@ public class POS {
     }
 
     public static void updatePOStextArea(ArrayListPair<String, Character> res, String text, InlineCssTextArea posarea) {
-        int current, next, searchFrom = 0;
         for (int i = 0; i < res.a.size(); i++) {
             String token = res.a.get(i);
             if (token.equals(".") || token.equals("!") || token.equals(",") || token.equals("?")) continue;
 
-            current = text.indexOf(token, searchFrom);
-            while (current >= 0) {
-                next = current + token.length();
+            String regex = "\\b" + Pattern.quote(token) + "\\b";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(text);
+
+            while (matcher.find()) {
+                int current = matcher.start();
+                int next = matcher.end();
 
                 switch (res.b.get(i)) {
                     case 'N' -> {
-                        posarea.setStyle(current, next, "-rtfx-background-color: #25d9fe");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #25d9fe; -fx-fill: black");
                     }
                     case 'V' -> {
-                        posarea.setStyle(current, next, "-rtfx-background-color: #f5410e; -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #f5410e");
                     }
                     case 'I', 'C' -> {
-                        posarea.setStyle(current, next, "-rtfx-background-color: #ca0ef5; -fx-fill: black");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #ca0ef5");
                     }
                     case 'J' -> {
                         posarea.setStyle(current, next, "-rtfx-background-color: #ffe000; -fx-fill: black");
@@ -100,14 +109,10 @@ public class POS {
                         posarea.setStyle(current, next, "-rtfx-background-color: transparent");
                     }
                 }
-
-                searchFrom += token.length();
-                System.out.println(searchFrom);
-                current = text.indexOf(token, searchFrom);
             }
-
         }
     }
+
 
     public static void updatePOS(InlineCssTextArea posarea, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat) {
         String text = posarea.getText();;

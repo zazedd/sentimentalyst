@@ -18,6 +18,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        POS.initializePOSPipeline();
+        Sentiment.initializeSentPipeline();
         launch();
     }
 }

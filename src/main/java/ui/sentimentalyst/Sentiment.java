@@ -18,11 +18,16 @@ import org.fxmisc.richtext.InlineCssTextArea;
 
 public class Sentiment {
 
-    public static ArrayListPair<Integer, String> execLangModel(String text) {
-        Properties props = new Properties();
-        props.setProperty("annotators", "tokenize,parse,sentiment");
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+    static Properties props;
+    static StanfordCoreNLP pipeline;
 
+    public static void initializeSentPipeline() {
+        props = new Properties();
+        props.setProperty("annotators", "tokenize,parse,sentiment");
+        pipeline = new StanfordCoreNLP(props);
+    }
+
+    public static ArrayListPair<Integer, String> execLangModel(String text) {
         Annotation annotation = new Annotation(text);
         pipeline.annotate(annotation);
 
@@ -31,8 +36,7 @@ public class Sentiment {
 
         int i = 0;
         ArrayList<String> sentences = new ArrayList<>();
-        for(CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class))
-        {
+        for(CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class)) {
             if (sentence.toString().equals(".")) continue;
 
             Tree tree = sentence.get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
