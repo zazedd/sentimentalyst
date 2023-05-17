@@ -3,6 +3,7 @@ package ui.sentimentalyst;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import javafx.scene.control.Label;
 import org.fxmisc.richtext.InlineCssTextArea;
 
@@ -25,6 +26,7 @@ public class POS {
 
     public static ArrayListPair<String, Character> execPOSModel(String text) {
         CoreDocument document = pipeline.processToCoreDocument(text);
+        String tag;
 
         int i = 0;
         ArrayList<String> tokens = new ArrayList<>();
@@ -34,15 +36,18 @@ public class POS {
             System.out.println(String.format("%s\t%s", tok.word(), tok.tag()));
 
             tokens.add(tok.word());
-            tags.add(tok.tag().charAt(0));
+            tag = tok.tag();
+            if (tag.charAt(0) == 'P' && tag.charAt(1) != 'R') continue; // there are more things starting with P but we only want PR's (pronouns)
+
+            tags.add(tag.charAt(0));
             i++;
         }
 
         return new ArrayListPair<>(tokens, tags);
     }
 
-    public static void updatePOSStatistics(ArrayListPair<String, Character> res, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat) {
-        int wordCount = 0, nounCount = 0, verbCount = 0, conjCount = 0, adjCount = 0, advCount = 0;
+    public static void updatePOSStatistics(ArrayListPair<String, Character> res, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat, Label prostat, Label detstat) {
+        int wordCount = 0, nounCount = 0, verbCount = 0, conjCount = 0, adjCount = 0, advCount = 0, proCount = 0, detCount = 0;
         for (int i = 0; i < res.a.size(); i++) {
             String token = res.a.get(i);
             if (token.equals(".") || token.equals("!") || token.equals(",") || token.equals("?")) continue;
@@ -64,6 +69,12 @@ public class POS {
                 case 'R' -> {
                     advCount++;
                 }
+                case 'P' -> {
+                    proCount++;
+                }
+                case 'D' -> {
+                    detCount++;
+                }
                 default -> {}
             }
         }
@@ -74,6 +85,8 @@ public class POS {
         conjstat.setText(Integer.toString(conjCount));
         adjstat.setText(Integer.toString(adjCount));
         advstat.setText(Integer.toString(advCount));
+        prostat.setText(Integer.toString(proCount));
+        detstat.setText(Integer.toString(detCount));
     }
 
     public static void updatePOStextArea(ArrayListPair<String, Character> res, String text, InlineCssTextArea posarea) {
@@ -97,13 +110,19 @@ public class POS {
                         posarea.setStyle(current, next, "-rtfx-background-color: #f5410e");
                     }
                     case 'I', 'C' -> {
-                        posarea.setStyle(current, next, "-rtfx-background-color: #ca0ef5");
+                        posarea.setStyle(current, next, "-rtfx-background-color: #daF7a6; -fx-fill: black;");
                     }
                     case 'J' -> {
                         posarea.setStyle(current, next, "-rtfx-background-color: #ffe000; -fx-fill: black");
                     }
                     case 'R' -> {
                         posarea.setStyle(current, next, "-rtfx-background-color: #00ff0e; -fx-fill: black");
+                    }
+                    case 'P' -> {
+                        posarea.setStyle(current, next, "-rtfx-background-color: #ca0ef5;");
+                    }
+                    case 'D' -> {
+                        posarea.setStyle(current, next, "-rtfx-background-color: #ff0000;");
                     }
                     default -> {
                         posarea.setStyle(current, next, "-rtfx-background-color: transparent");
@@ -114,18 +133,20 @@ public class POS {
     }
 
 
-    public static void updatePOS(InlineCssTextArea posarea, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat) {
+    public static void updatePOS(InlineCssTextArea posarea, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat, Label prostat, Label detstat, MFXProgressSpinner progress) {
         String text = posarea.getText();;
         if (text == null || text.length() == 0)
             return;
 
+        progress.setStyle("-fx-opacity: 0");
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair<String, Character> res = execPOSModel(newText);
-        updatePOSStatistics(res, wordstat, nounstat, verbstat, conjstat, adjstat, advstat);
+        updatePOSStatistics(res, wordstat, nounstat, verbstat, conjstat, adjstat, advstat, prostat, detstat);
         updatePOStextArea(res, text, posarea);
     }
 
-    public static void updatePOSTyping(InlineCssTextArea sentarea) {
+    public static void updatePOSTyping(InlineCssTextArea sentarea, MFXProgressSpinner progress) {
         sentarea.setStyle(0, sentarea.getText().length(), "-rtfx-background-color: transparent; -fx-fill: white");
+        progress.setStyle("-fx-opacity: 1");
     }
 }

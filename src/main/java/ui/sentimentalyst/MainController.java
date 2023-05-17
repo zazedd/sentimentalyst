@@ -61,8 +61,8 @@ public class MainController {
 
     public void posHandler (KeyEvent event) {
         switch (event.getCode()) {
-            case ENTER, PERIOD, EXCLAMATION_MARK -> updatePOS(posarea, wordstat, nounstat, verbstat, conjstat, adjstat, advstat);
-            default -> updatePOSTyping(sentarea);
+            case ENTER, PERIOD, EXCLAMATION_MARK -> updatePOS(posarea, wordstat, nounstat, verbstat, conjstat, adjstat, advstat, prostat, detstat, progress2);
+            default -> updatePOSTyping(sentarea, progress2);
         }
     }
 }
