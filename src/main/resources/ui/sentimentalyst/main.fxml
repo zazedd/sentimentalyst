@@ -76,7 +76,7 @@
                                  </GridPane.margin></Label>
                               <Label style="-fx-text-fill: #6fe069;" text="It can also be positive" GridPane.rowIndex="5" />
                               <Label style="-fx-text-fill: #48f542;" text="Or it can be very positive" GridPane.rowIndex="6" />
-                              <Label style="-fx-text-fill: #ffffff&quot;;" text="Or it can be neutral" GridPane.rowIndex="4" />
+                              <Label style="-fx-text-fill: #ffffff;" text="Or it can be neutral" GridPane.rowIndex="4" />
                               <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#d61327" height="31.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radius: 25px;" width="31.0" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets left="30.0" />
