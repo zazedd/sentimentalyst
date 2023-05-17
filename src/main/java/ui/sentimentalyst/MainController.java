@@ -39,7 +39,16 @@ public class MainController {
     Label advstat;
 
     @FXML
+    Label prostat;
+
+    @FXML
+    Label detstat;
+
+    @FXML
     MFXProgressSpinner progress;
+
+    @FXML
+    MFXProgressSpinner progress2;
 
     @FXML
     public void sentimentHandler (KeyEvent event) {
