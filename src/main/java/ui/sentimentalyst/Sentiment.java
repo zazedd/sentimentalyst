@@ -74,7 +74,7 @@ public class Sentiment {
             }
             case 2 -> {
                 System.out.println("Overall sentiment: Neutral");
-                labelsentiment.setTextFill(Color.valueOf("#ffffff"));
+                labelsentiment.setTextFill(Color.valueOf("#a19f9f"));
                 labelsentiment.setText("Neutral");
             }
             case 3 -> {
