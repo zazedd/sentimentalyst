@@ -94,11 +94,12 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentimentTextArea(ArrayListPair<Integer, String> res, InlineCssTextArea sentarea, String text, boolean isEnter) {
+    public static void updateSentimentTextArea(ArrayListPair<Integer, String> res, InlineCssTextArea sentarea, String text) {
         String sentence;
         int score, current, next;
         for (int i = 0; i < res.a.size(); i++) {
-            sentence = (isEnter) ? res.b.get(i).substring(0, res.b.get(i).length() - 1) : res.b.get(i);
+            sentence = res.b.get(i);
+            if (sentence.charAt(sentence.length() - 1) == '.') sentence = sentence.substring(0, sentence.length() - 1);
             System.out.println(sentence);
             current = text.indexOf(sentence);
             while (current >= 0) {
@@ -129,16 +130,16 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress, boolean isEnter) {
+    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress) {
         String text = sentarea.getText();;
         if (text == null || text.length() == 0)
             return;
 
         progress.setStyle("-fx-opacity: 0");
         String newText = text.replaceAll("\n", ". ");
-        ArrayListPair res = execLangModel(newText);
+        ArrayListPair<Integer, String> res = execLangModel(newText);
         updateSentimentLabel(res.a, labelsentiment);
-        updateSentimentTextArea(res, sentarea, text, isEnter);
+        updateSentimentTextArea(res, sentarea, text);
     }
 
     public static void updateSentimentTyping(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress) {
