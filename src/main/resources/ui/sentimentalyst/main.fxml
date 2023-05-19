@@ -71,7 +71,10 @@
                                  <GridPane.margin>
                                     <Insets left="65.0" />
                                  </GridPane.margin></Label>
-                              <Label text="Very Positive" textFill="WHITE" GridPane.rowIndex="5" />
+                              <Label text="Very Positive" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets left="65.0" />
+                                 </GridPane.margin></Label>
                               <Label text="Neutral" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets left="65.0" />
@@ -201,13 +204,83 @@
           </Tab>
             <Tab id="tab3" fx:id="infoTab" closable="false" text="Information">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #333;">
                      <children>
-                        <Label layoutX="1.0" prefHeight="508.0" prefWidth="943.0" text="Welcome to Sentimentalyst. " />
+                        <GridPane layoutX="-1.0" layoutY="92.0" prefHeight="720.0" prefWidth="1211.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="778.0" minWidth="477.0" prefWidth="477.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="778.0" minWidth="0.0" prefWidth="267.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="600.0" minWidth="250.0" prefWidth="478.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="156.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="235.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="254.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Text id="info-label" fill="#00ccff" strokeType="OUTSIDE" strokeWidth="0.0" text="Sentimentalyst V1.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text id="info-label" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Examples:" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text id="info-label" fill="#00d4ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Authors:" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text id="info-label" fill="#00d4ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Credits:" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Designed to provide you with valuable insights into your text. With two interactive tabs, it offers a comprehensive analysis of your written content. All you have to do is input some text and click Enter or Period!" wrappingWidth="446.0" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="António Cruz - № 47711 Leonardo Santos - № 48708" wrappingWidth="223.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CoreNLP - Stanford MaterialFX - palexdev RichTextFX - FXMisc " wrappingWidth="223.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text fill="#2ac33c" strokeType="OUTSIDE" strokeWidth="0.0" text="Sentiment Analysis" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Our intelligent algorithm analyzes each phrase and colors them based on the feelings they convey. Get a quick glance at the overall sentiment of your text, determined by the average feeling of all the phrases." wrappingWidth="447.0" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text fill="#f26262" strokeType="OUTSIDE" strokeWidth="0.0" text="Parts of Speech" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Counts and categorizes various parts of speech in your text, including nouns, pronouns, determiners, adjectives, adverbs, conjunctions, and verbs. Each word is color-coded to represent its specific type, enabling you to visualize your linguistic patterns." wrappingWidth="447.0" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets bottom="15.0" left="20.0" right="20.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text id="info-header" fill="#dddddd" strokeType="OUTSIDE" strokeWidth="0.0" text="Information Page" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
                      </children></AnchorPane>
               </content>
                <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="30" strokeWidth="0.5" translateX="-4.0" translateY="3.0" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="30" strokeWidth="0.5" translateX="-4.0" translateY="2.5" />
                </graphic>
             </Tab>
         </tabs>

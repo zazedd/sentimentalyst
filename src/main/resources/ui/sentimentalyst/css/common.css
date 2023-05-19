@@ -19,3 +19,23 @@
 #labellang {
   -fx-font-size: 16pt;
 }
+
+#info-header {
+  -fx-font-size: 18pt;
+}
+
+#info-label {
+  -fx-font-size: 13pt;
+}
+
+#info-area {
+  -fx-background-color: #333, #333;
+}
+
+#info-area .content {
+  -fx-background-color: #333;
+}
+
+#info-area:focused .content {
+  -fx-background-color: #333;
+}
