@@ -79,7 +79,7 @@ public class Sentiment {
             }
             case 3 -> {
                 System.out.println("Overall sentiment: Positive");
-                labelsentiment.setTextFill(Color.valueOf("#6fe069"));
+                labelsentiment.setTextFill(Color.valueOf("#a1ffa2"));
                 labelsentiment.setText("Positive");
             }
             case 4 -> {
@@ -116,10 +116,10 @@ public class Sentiment {
                         sentarea.setStyle(current, next, "-rtfx-background-color: #a19f9f; -fx-fill: black");
                     }
                     case 3 -> {
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #6fe069; -fx-fill: black");
+                        sentarea.setStyle(current, next, "-rtfx-background-color: #a1ffa2; -fx-fill: black");
                     }
                     case 4 -> {
-                        sentarea.setStyle(current, next, "-rtfx-background-color: #48f542 -fx-fill: black");
+                        sentarea.setStyle(current, next, "-rtfx-background-color: #48f542; -fx-fill: black");
                     }
                     default -> {
                         sentarea.setStyle(current, next, "-rtfx-background-color: transparent");

@@ -14,7 +14,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Sentimentalyst");
-        stage.getIcons().add(new Image("file:assets/icon.png"));
+        stage.getIcons().add(new Image("file:src/main/resources/ui/sentimentalyst/assets/icon.png"));
         Sentiment.initializeSentPipeline();
         stage.setScene(scene);
         stage.show();

@@ -7,6 +7,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -101,7 +103,7 @@
                                     <Insets left="30.0" />
                                  </GridPane.margin>
                               </Rectangle>
-                              <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#6fe069" height="31.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radius: 25px;" width="31.0" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+                              <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#a1ffa2" height="31.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radius: 25px;" width="31.0" GridPane.halignment="LEFT" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets left="30.0" />
                                  </GridPane.margin>
@@ -224,7 +226,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Text id="info-label" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Examples:" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                              <Text id="info-label" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Examples:" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </GridPane.margin>
@@ -239,7 +241,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Designed to provide you with valuable insights into your text. With two interactive tabs, it offers a comprehensive analysis of your written content. All you have to do is input some text and click Enter or Period!" wrappingWidth="446.0" GridPane.rowIndex="1">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Provides you with insights on your text. With two interactive tabs, it offers a comprehensive analysis of your written content. All you have to do is input some text and click Enter or Period!" wrappingWidth="446.0" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin>
@@ -259,22 +261,42 @@
                                     <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Our intelligent algorithm analyzes each phrase and colors them based on the feelings they convey. Get a quick glance at the overall sentiment of your text, determined by the average feeling of all the phrases." wrappingWidth="447.0" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Our intelligent algorithm analyzes each phrase and colors them based on the feelings they convey. It also calculates an overall sentiment of the text." wrappingWidth="447.0" GridPane.rowIndex="2" GridPane.valignment="TOP">
                                  <GridPane.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" />
                                  </GridPane.margin>
                               </Text>
                               <Text fill="#f26262" strokeType="OUTSIDE" strokeWidth="0.0" text="Parts of Speech" GridPane.rowIndex="2">
                                  <GridPane.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" />
+                                    <Insets bottom="50.0" left="20.0" right="20.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Counts and categorizes various parts of speech in your text, including nouns, pronouns, determiners, adjectives, adverbs, conjunctions, and verbs. Each word is color-coded to represent its specific type, enabling you to visualize your linguistic patterns." wrappingWidth="447.0" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Counts and categorizes various parts of speech in your text, including nouns, pronouns, determiners, adjectives, adverbs, conjunctions, and verbs. Each word is color-coded ." wrappingWidth="447.0" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
-                                    <Insets bottom="15.0" left="20.0" right="20.0" />
+                                    <Insets bottom="65.0" left="20.0" right="20.0" />
                                  </GridPane.margin>
                               </Text>
                               <Text id="info-header" fill="#dddddd" strokeType="OUTSIDE" strokeWidth="0.0" text="Information Page" GridPane.columnIndex="1" />
+                              <ImageView fitHeight="231.0" fitWidth="427.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@assets/pos.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <Pane prefHeight="254.0" prefWidth="465.0" GridPane.rowIndex="3">
+                                 <children>
+                                    <ImageView fitHeight="231.0" fitWidth="427.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="10.0">
+                                       <image>
+                                          <Image url="@assets/sentiment.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Pane>
                            </children>
                         </GridPane>
                      </children></AnchorPane>

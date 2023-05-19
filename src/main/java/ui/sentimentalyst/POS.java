@@ -145,8 +145,8 @@ public class POS {
         updatePOStextArea(res, text, posarea);
     }
 
-    public static void updatePOSTyping(InlineCssTextArea sentarea, MFXProgressSpinner progress) {
-        sentarea.setStyle(0, sentarea.getText().length(), "-rtfx-background-color: transparent; -fx-fill: white");
+    public static void updatePOSTyping(InlineCssTextArea posarea, MFXProgressSpinner progress) {
+        posarea.setStyle(0, posarea.getText().length(), "-rtfx-background-color: transparent; -fx-fill: white");
         progress.setStyle("-fx-opacity: 1");
     }
 }
