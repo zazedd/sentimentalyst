@@ -51,21 +51,6 @@ public class MainController {
     }
 
     @FXML
-    private void repositionLines(Pane pane, Line line, boolean heightChange, double heightDiff) {
-        if (heightChange) {
-            line.setStartY(line.getStartY() + heightDiff);
-            line.setEndY(line.getEndY() + heightDiff);
-            return;
-        }
-
-        double widthEnd = mainpane.getWidth();
-        double widthStart = pane.getWidth();
-
-        line.setEndX(widthEnd);
-        line.setStartX(widthStart);
-    }
-
-    @FXML
     public void sentimentHandler (KeyEvent event) {
         switch (event.getCode()) {
             case ENTER, PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, progress);
