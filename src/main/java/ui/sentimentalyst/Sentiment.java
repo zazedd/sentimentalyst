@@ -1,5 +1,6 @@
 package ui.sentimentalyst;
 
+import java.text.DecimalFormat;
 import java.util.Properties;
 import java.util.*;
 
@@ -14,6 +15,7 @@ import edu.stanford.nlp.trees.Tree;
 import io.github.palexdev.materialfx.controls.MFXProgressBar;
 import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.paint.Color;
 import org.fxmisc.richtext.InlineCssTextArea;
 
@@ -52,9 +54,10 @@ public class Sentiment {
         return new ArrayListPair(sentenceScores, sentences);
     }
 
-    public static void updateSentimentLabel(ArrayList<Integer> res, Label labelsentiment, MFXProgressBar positivebar, MFXProgressBar negativebar) {
+    public static void updateSentimentLabel(ArrayList<Integer> res, Label labelsentiment, MFXProgressBar positivebar, MFXProgressBar negativebar, Tooltip positivettip, Tooltip negativettip) {
         int count = 0;
         double median = 0, positive = 0, negative = 0;
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
 
         for (int sentence : res) {
             median += (double) sentence;
@@ -74,10 +77,17 @@ public class Sentiment {
         median /= res.size();
         int score = (int) Math.round(median);
 
-        positive /= count;
+        positive /= (count * 2);
         positivebar.setProgress(positive);
-        negative /= count;
+
+        String formattedPositive = decimalFormat.format(positive);
+        positivettip.setText("Positive Score: " + formattedPositive + " / 1");
+
+        negative /= (count * 2);
         negativebar.setProgress(Math.abs(negative));
+
+        String formattedNegative = decimalFormat.format(negative);
+        negativettip.setText("Negative Score: " + formattedNegative + " / 1");
 
         System.out.println(median);
 
@@ -151,7 +161,7 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress, MFXProgressBar positivebar, MFXProgressBar negativebar) {
+    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress, MFXProgressBar positivebar, MFXProgressBar negativebar, Tooltip positivettip, Tooltip negativettip) {
         String text = sentarea.getText();;
         if (text == null || text.length() == 0)
             return;
@@ -159,7 +169,7 @@ public class Sentiment {
         progress.setStyle("-fx-opacity: 0");
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair<Integer, String> res = execLangModel(newText);
-        updateSentimentLabel(res.a, labelsentiment, positivebar, negativebar);
+        updateSentimentLabel(res.a, labelsentiment, positivebar, negativebar, positivettip, negativettip);
         updateSentimentTextArea(res, sentarea, text);
     }
 

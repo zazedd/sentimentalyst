@@ -1,12 +1,15 @@
 package ui.sentimentalyst;
 
+import io.github.palexdev.materialfx.beans.NumberRange;
 import io.github.palexdev.materialfx.controls.MFXProgressBar;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
+import javafx.util.Duration;
 import org.fxmisc.richtext.InlineCssTextArea;
 import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 
@@ -35,6 +38,8 @@ public class MainController {
     @FXML
     MFXProgressBar positivebar, negativebar;
 
+    Tooltip positivettip, negativettip;
+
     @FXML
     public void initialize() {
         sentpane.widthProperty().addListener((obs, oldWidth, newWidth) -> resizeArea(sentpane, sentarea));
@@ -42,6 +47,20 @@ public class MainController {
 
         pospane.widthProperty().addListener((obs, oldWidth, newWidth) -> resizeArea(pospane, posarea));
         pospane.heightProperty().addListener((obs, oldHeight, newHeight) -> resizeArea(pospane, posarea));
+
+        positivebar.getRanges1().add(NumberRange.of(0.0, 0.40));
+        positivebar.getRanges2().add(NumberRange.of(0.41, 0.80));
+        positivebar.getRanges3().add(NumberRange.of(0.81, 2.0));
+        positivettip = new Tooltip("Positive Sentiment");
+        positivettip.setShowDelay(Duration.millis(300));
+        positivebar.setTooltip(positivettip);
+
+        negativebar.getRanges1().add(NumberRange.of(0.0, 0.40));
+        negativebar.getRanges2().add(NumberRange.of(0.41, 0.80));
+        negativebar.getRanges3().add(NumberRange.of(0.81, 2.0));
+        negativettip = new Tooltip("Negative Sentiment");
+        negativettip.setShowDelay(Duration.millis(300));
+        negativebar.setTooltip(negativettip);
     }
 
 
@@ -57,7 +76,7 @@ public class MainController {
     @FXML
     public void sentimentHandler (KeyEvent event) {
         switch (event.getCode()) {
-            case ENTER, PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, progress, positivebar, negativebar);
+            case ENTER, PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, progress, positivebar, negativebar, positivettip, negativettip);
             default -> updateSentimentTyping(sentarea, labelsentiment, progress);
         }
     }

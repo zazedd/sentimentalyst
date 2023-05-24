@@ -1,13 +1,9 @@
-#positivebar .bar1 {
-  -fx-fill: #a1ffa2;
-}
-
 #positivebar:range1 .bar1 {
   -fx-fill: #a1ffa2;
 }
 
 #negativebar:range1 .bar1 {
-  -fx-fill: #e37b7c;
+  -fx-fill: #fcb3b3;
 }
 
 #positivebar:range2 .bar1 {
@@ -23,7 +19,7 @@
 }
 
 #negativebar:range3 .bar1 {
-  -fx-fill: #e37b7c;
+  -fx-fill: #d61327;
 }
 
 .mfx-progress-bar .track {
