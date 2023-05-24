@@ -11,6 +11,7 @@ import edu.stanford.nlp.pipeline.*;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 
 import edu.stanford.nlp.trees.Tree;
+import io.github.palexdev.materialfx.controls.MFXProgressBar;
 import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -51,16 +52,36 @@ public class Sentiment {
         return new ArrayListPair(sentenceScores, sentences);
     }
 
-    public static void updateSentimentLabel(ArrayList<Integer> res, Label labelsentiment) {
-        double median = 0;
+    public static void updateSentimentLabel(ArrayList<Integer> res, Label labelsentiment, MFXProgressBar positivebar, MFXProgressBar negativebar) {
+        int count = 0;
+        double median = 0, positive = 0, negative = 0;
 
-        for (int sentence : res) median += (double) sentence;
+        for (int sentence : res) {
+            median += (double) sentence;
+
+            switch (sentence - 2) {
+                case -2, -1 -> {
+                    count++;
+                    negative += (double) sentence - 2;
+                }
+                case 1, 2 -> {
+                    count++;
+                    positive += (double) sentence - 2;
+                }
+            }
+        }
 
         median /= res.size();
         int score = (int) Math.round(median);
 
+        positive /= count;
+        positivebar.setProgress(positive);
+        negative /= count;
+        negativebar.setProgress(Math.abs(negative));
+
         System.out.println(median);
 
+        labelsentiment.setStyle("-fx-opacity: 1");
         switch (score) {
             case 0 -> {
                 System.out.println("Overall sentiment: Very Negative");
@@ -130,7 +151,7 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress) {
+    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress, MFXProgressBar positivebar, MFXProgressBar negativebar) {
         String text = sentarea.getText();;
         if (text == null || text.length() == 0)
             return;
@@ -138,7 +159,7 @@ public class Sentiment {
         progress.setStyle("-fx-opacity: 0");
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair<Integer, String> res = execLangModel(newText);
-        updateSentimentLabel(res.a, labelsentiment);
+        updateSentimentLabel(res.a, labelsentiment, positivebar, negativebar);
         updateSentimentTextArea(res, sentarea, text);
     }
 
@@ -146,6 +167,7 @@ public class Sentiment {
         labelsentiment.setTextFill(Color.valueOf("#ffffff"));
         sentarea.setStyle(0, sentarea.getText().length(), "-rtfx-background-color: transparent; -fx-fill: white");
         labelsentiment.setText("?");
+        labelsentiment.setStyle("-fx-opacity: 0");
         progress.setStyle("-fx-opacity: 1");
     }
 }

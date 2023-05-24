@@ -1,0 +1,39 @@
+#positivebar .bar1 {
+  -fx-fill: #a1ffa2;
+}
+
+#positivebar:range1 .bar1 {
+  -fx-fill: #a1ffa2;
+}
+
+#negativebar:range1 .bar1 {
+  -fx-fill: #e37b7c;
+}
+
+#positivebar:range2 .bar1 {
+  -fx-fill: #6afc6c;
+}
+
+#negativebar:range2 .bar1 {
+  -fx-fill: #e37b7c;
+}
+
+#positivebar:range3 .bar1 {
+  -fx-fill: #48f542;
+}
+
+#negativebar:range3 .bar1 {
+  -fx-fill: #e37b7c;
+}
+
+.mfx-progress-bar .track {
+  -fx-fill: #b5b5b5;
+}
+
+.mfx-progress-bar .track,
+.mfx-progress-bar .bar1,
+.mfx-progress-bar .bar2 {
+	-fx-arc-height: 6;
+	-fx-arc-width: 6;
+}
+

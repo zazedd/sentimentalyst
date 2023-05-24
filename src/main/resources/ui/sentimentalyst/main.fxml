@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.fxmisc.richtext.InlineCssTextArea?>
 
-<AnchorPane fx:id="mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="315.0" minWidth="560.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/common.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.sentimentalyst.MainController">
+<AnchorPane fx:id="mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="315.0" minWidth="560.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/common.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.sentimentalyst.MainController">
    <children>
       <TabPane id="sidebar" fx:id="sidebar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" side="LEFT" stylesheets="@css/tabpanes.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -45,8 +45,8 @@
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints maxHeight="150.0" minHeight="100.0" prefHeight="150.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="100.0" minHeight="30.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="150.0" minHeight="100.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="104.0" minHeight="30.0" prefHeight="104.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="119.0" minHeight="30.0" prefHeight="119.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="119.0" minHeight="30.0" prefHeight="119.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="119.0" minHeight="30.0" prefHeight="119.0" vgrow="SOMETIMES" />
@@ -58,9 +58,9 @@
                                  <GridPane.margin>
                                     <Insets top="20.0" />
                                  </GridPane.margin></Label>
-                              <Label fx:id="labelsentiment" text="?" textFill="WHITE" GridPane.valignment="CENTER">
+                              <Label fx:id="labelsentiment" text="?" textFill="WHITE" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
-                                    <Insets top="10.0" />
+                                    <Insets bottom="15.0" />
                                  </GridPane.margin></Label>
                               <Label text="Very Negative" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                                  <GridPane.margin>
@@ -113,12 +113,24 @@
                               <Line endX="1211.0" endY="432.0" startX="985.0" startY="432.0" stroke="#333333" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
                               <Line endX="1211.0" endY="531.0" startX="985.0" startY="531.0" stroke="#333333" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
                               <Line endX="1207.0" endY="630.0" startX="983.0" startY="630.0" stroke="#333333" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
-                              <MFXProgressSpinner fx:id="progress" opacity="0.0" prefHeight="35.0" prefWidth="30.0">
+                              <MFXProgressSpinner fx:id="progress" opacity="0.0" prefHeight="35.0" prefWidth="30.0" GridPane.valignment="BOTTOM">
                                  <color3>
                                     <Color red="0.949999988079071" green="0.38121017813682556" />
                                  </color3>
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </GridPane.margin>
                               </MFXProgressSpinner>
-                              <MFXProgressBar animationSpeed="0.0" prefHeight="19.0" progress="0.55" style="-fx-accent: #48f542;" GridPane.rowIndex="1" />
+                              <MFXProgressBar id="negativebar" fx:id="negativebar" animationSpeed="0.0" prefHeight="10.0" prefWidth="155.0" progress="0.0" stylesheets="@css/progress.css" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets bottom="23.0" />
+                                 </GridPane.margin></MFXProgressBar>
+                              <MFXProgressBar id="positivebar" fx:id="positivebar" animationSpeed="0.0" prefHeight="10.0" prefWidth="155.0" progress="0.0" stylesheets="@css/progress.css" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" top="23.0" />
+                                 </GridPane.margin>
+                              </MFXProgressBar>
+                              <Line endX="985.0" endY="233.0" startX="1211.0" startY="233.0" stroke="#333333" GridPane.valignment="BOTTOM" />
                            </children>
                         </GridPane>
                      </children>

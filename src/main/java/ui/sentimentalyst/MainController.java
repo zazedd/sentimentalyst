@@ -1,5 +1,6 @@
 package ui.sentimentalyst;
 
+import io.github.palexdev.materialfx.controls.MFXProgressBar;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
@@ -32,6 +33,9 @@ public class MainController {
     MFXProgressSpinner progress, progress2;
 
     @FXML
+    MFXProgressBar positivebar, negativebar;
+
+    @FXML
     public void initialize() {
         sentpane.widthProperty().addListener((obs, oldWidth, newWidth) -> resizeArea(sentpane, sentarea));
         sentpane.heightProperty().addListener((obs, oldHeight, newHeight) -> resizeArea(sentpane, sentarea));
@@ -53,7 +57,7 @@ public class MainController {
     @FXML
     public void sentimentHandler (KeyEvent event) {
         switch (event.getCode()) {
-            case ENTER, PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, progress);
+            case ENTER, PERIOD, EXCLAMATION_MARK -> updateSentiment(sentarea, labelsentiment, progress, positivebar, negativebar);
             default -> updateSentimentTyping(sentarea, labelsentiment, progress);
         }
     }
