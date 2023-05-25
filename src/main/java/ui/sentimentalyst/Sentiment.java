@@ -161,11 +161,16 @@ public class Sentiment {
         }
     }
 
-    public static void updateSentiment(InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress, MFXProgressBar positivebar, MFXProgressBar negativebar, Tooltip positivettip, Tooltip negativettip) {
-        String text = sentarea.getText();;
-        if (text == null || text.length() == 0)
+    public static void updateSentiment(String content, InlineCssTextArea sentarea, Label labelsentiment, MFXProgressSpinner progress, MFXProgressBar positivebar, MFXProgressBar negativebar, Tooltip positivettip, Tooltip negativettip) {
+        String text = (content == null) ? sentarea.getText() : content;
+        if (text == null || text.length() == 0 || text.equals("\n")) {
             return;
+        }
 
+        if (content != null) {
+            sentarea.clear();
+            sentarea.appendText(content);
+        }
         progress.setStyle("-fx-opacity: 0");
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair<Integer, String> res = execLangModel(newText);

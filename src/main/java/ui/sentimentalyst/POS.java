@@ -132,12 +132,16 @@ public class POS {
         }
     }
 
-
-    public static void updatePOS(InlineCssTextArea posarea, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat, Label prostat, Label detstat, MFXProgressSpinner progress) {
-        String text = posarea.getText();;
+    public static void updatePOS(String content, InlineCssTextArea posarea, Label wordstat, Label nounstat, Label verbstat, Label conjstat, Label adjstat, Label advstat, Label prostat, Label detstat, MFXProgressSpinner progress) {
+        String text = (content == null) ? posarea.getText() : content;
         if (text == null || text.length() == 0)
             return;
 
+
+        if (content != null) {
+            posarea.clear();
+            posarea.appendText(content);
+        }
         progress.setStyle("-fx-opacity: 0");
         String newText = text.replaceAll("\n", ". ");
         ArrayListPair<String, Character> res = execPOSModel(newText);

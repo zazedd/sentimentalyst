@@ -2,13 +2,13 @@
 
 <?import de.jensd.fx.glyphs.emojione.EmojiOneView?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXProgressBar?>
 <?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,6 +39,7 @@
                               </InlineCssTextArea>
                               <Text id="label-area" fill="#dddddd" layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert the text you want to evaluate:">
                                  </Text>
+                              <MFXButton onAction="#handleFileSent" fx:id="import1" layoutX="816.0" layoutY="16.0" prefHeight="26.0" prefWidth="125.0" style="-fx-background-color: #b5b5b5;" text="Import file..." />
                            </children>
                         </Pane>
                         <GridPane alignment="CENTER" layoutX="985.0" layoutY="1.0" prefHeight="720.0" prefWidth="226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -156,6 +157,7 @@
                                  </padding>
                               </InlineCssTextArea>
                               <Text id="label-area" fill="#dddddd" layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert the text you want to evaluate:" />
+                              <MFXButton onAction="#handleFilePOS" fx:id="import2" layoutX="816.0" layoutY="16.0" prefHeight="26.0" prefWidth="125.0" style="-fx-background-color: #b5b5b5;" text="Import file..." />
                            </children>
                         </Pane>
                         <GridPane alignment="CENTER" layoutX="987.0" layoutY="63.0" prefHeight="720.0" prefWidth="226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
