@@ -39,7 +39,7 @@
                               </InlineCssTextArea>
                               <Text id="label-area" fill="#dddddd" layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert the text you want to evaluate:">
                                  </Text>
-                              <MFXButton onAction="#handleFileSent" fx:id="import1" layoutX="816.0" layoutY="16.0" prefHeight="26.0" prefWidth="125.0" style="-fx-background-color: #b5b5b5;" text="Import file..." />
+                              <MFXButton onAction="#handleFileSent" fx:id="import1" layoutX="816.0" layoutY="16.0" prefHeight="26.0" prefWidth="125.0" style="-fx-background-color: #b5b5b5;" text="Import file..." AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </Pane>
                         <GridPane alignment="CENTER" layoutX="985.0" layoutY="1.0" prefHeight="720.0" prefWidth="226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

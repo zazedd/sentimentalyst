@@ -52,11 +52,11 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        sentpane.widthProperty().addListener((obs, oldWidth, newWidth) -> resizeArea(sentpane, sentarea));
-        sentpane.heightProperty().addListener((obs, oldHeight, newHeight) -> resizeArea(sentpane, sentarea));
+        sentpane.widthProperty().addListener((obs, oldWidth, newWidth) -> resizeArea(sentpane, sentarea, import1));
+        sentpane.heightProperty().addListener((obs, oldHeight, newHeight) -> resizeArea(sentpane, sentarea, import1));
 
-        pospane.widthProperty().addListener((obs, oldWidth, newWidth) -> resizeArea(pospane, posarea));
-        pospane.heightProperty().addListener((obs, oldHeight, newHeight) -> resizeArea(pospane, posarea));
+        pospane.widthProperty().addListener((obs, oldWidth, newWidth) -> resizeArea(pospane, posarea, import2));
+        pospane.heightProperty().addListener((obs, oldHeight, newHeight) -> resizeArea(pospane, posarea, import2));
 
         positivebar.getRanges1().add(NumberRange.of(0.0, 0.40));
         positivebar.getRanges2().add(NumberRange.of(0.41, 0.80));
@@ -75,12 +75,13 @@ public class MainController {
 
 
     @FXML
-    private void resizeArea(Pane pane, InlineCssTextArea area) {
+    private void resizeArea(Pane pane, InlineCssTextArea area, MFXButton importButton) {
         double containerWidth = pane.getWidth() - 82;
         double containerHeight = pane.getHeight() - 86;
 
         area.setPrefWidth(containerWidth);
         area.setPrefHeight(containerHeight);
+        importButton.setLayoutX(containerWidth - 85);
     }
 
 
@@ -90,7 +91,7 @@ public class MainController {
         return fc.showOpenDialog(new Stage());
     }
 
-    public String getFileContent() throws FileNotFoundException {
+    public String getFileContent() {
         File file = showFileDialog();
         InputStream in = null;
         try {
