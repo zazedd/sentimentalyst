@@ -87,7 +87,7 @@ public class Sentiment {
         negativebar.setProgress(Math.abs(negative));
 
         String formattedNegative = decimalFormat.format(negative);
-        negativettip.setText("Negative Score: " + formattedNegative + " / 1");
+        negativettip.setText("Negative Score: " + formattedNegative + " / -1");
 
         System.out.println(median);
 
