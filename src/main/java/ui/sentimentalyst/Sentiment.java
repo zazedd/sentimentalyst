@@ -172,7 +172,7 @@ public class Sentiment {
             sentarea.appendText(content);
         }
         progress.setStyle("-fx-opacity: 0");
-        String newText = text.replaceAll("\n", ". ");
+        String newText = text.replaceAll("\\.\\n", ". ").replaceAll("\n", ". ");
         ArrayListPair<Integer, String> res = execLangModel(newText);
         updateSentimentLabel(res.a, labelsentiment, positivebar, negativebar, positivettip, negativettip);
         updateSentimentTextArea(res, sentarea, text);

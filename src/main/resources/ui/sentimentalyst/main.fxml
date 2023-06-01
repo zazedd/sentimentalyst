@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.fxmisc.richtext.InlineCssTextArea?>
 
-<AnchorPane fx:id="mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="620.0" minWidth="1240.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/common.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.sentimentalyst.MainController">
+<AnchorPane fx:id="mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="620.0" minWidth="1240.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/common.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.sentimentalyst.MainController">
    <children>
       <TabPane id="sidebar" fx:id="sidebar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" side="LEFT" stylesheets="@css/tabpanes.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -48,7 +48,7 @@
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints maxHeight="150.0" minHeight="100.0" prefHeight="110.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="104.0" minHeight="30.0" prefHeight="104.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="104.0" minHeight="90.0" prefHeight="104.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="119.0" minHeight="30.0" prefHeight="119.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="119.0" minHeight="30.0" prefHeight="119.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="119.0" minHeight="30.0" prefHeight="119.0" vgrow="SOMETIMES" />
@@ -123,9 +123,9 @@
                                     <Insets bottom="10.0" />
                                  </GridPane.margin>
                               </MFXProgressSpinner>
-                              <MFXProgressBar id="negativebar" fx:id="negativebar" animationSpeed="0.0" prefHeight="10.0" prefWidth="155.0" progress="0.0" stylesheets="@css/progress.css" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                              <MFXProgressBar id="negativebar" fx:id="negativebar" animationSpeed="0.0" prefHeight="10.0" prefWidth="155.0" progress="0.0" stylesheets="@css/progress.css" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                  <GridPane.margin>
-                                    <Insets bottom="23.0" />
+                                    <Insets top="57.0" />
                                  </GridPane.margin></MFXProgressBar>
                               <MFXProgressBar id="positivebar" fx:id="positivebar" animationSpeed="0.0" prefHeight="10.0" prefWidth="155.0" progress="0.0" stylesheets="@css/progress.css" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                  <GridPane.margin>
@@ -227,10 +227,10 @@
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="600.0" minWidth="250.0" prefWidth="478.0" />
                           </columnConstraints>
                           <rowConstraints>
-                              <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="156.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="235.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="254.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="126.0" minHeight="40.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="208.0" minHeight="140.0" prefHeight="156.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="235.0" minHeight="210.0" prefHeight="235.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="254.0" minHeight="250.0" prefHeight="254.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
                               <Text id="info-label" fill="#00ccff" strokeType="OUTSIDE" strokeWidth="0.0" text="Sentimentalyst V1.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
