@@ -1,4 +1,4 @@
-# sentimentalyst
+# Sentimentalyst
 Sentiment analysis for the desktop  
 
 Screenshots:  
