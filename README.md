@@ -1,7 +1,7 @@
 # Sentimentalyst
 Sentiment analysis for the desktop  
 
-Screenshots:  
+### Screenshots:  
 ![1](.github/sc1.png "Sentiment Analysis")
 ![2](.github/sc2.png "Parts of Speech")
 
