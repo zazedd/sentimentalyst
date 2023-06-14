@@ -8,7 +8,7 @@ You'll need the Stanford CoreNLP English model:
 wget -P lib/ https://downloads.cs.stanford.edu/nlp/software/stanford-corenlp-models-current.jar
 ```
 
-Built using openjdk20. Haven't tried other JDK's
+Built using OpenJDK 20. Haven't tried other JDK's
 
 ### Screenshots:  
 ![1](.github/sc1.png "Sentiment Analysis")
