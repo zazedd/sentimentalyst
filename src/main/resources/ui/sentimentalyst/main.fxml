@@ -167,7 +167,6 @@
                            <rowConstraints>
                               <RowConstraints maxHeight="80.0" minHeight="30.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="80.0" minHeight="30.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="80.0" minHeight="30.0" prefHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="80.0" minHeight="30.0" prefHeight="80.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="80.0" minHeight="30.0" prefHeight="80.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="80.0" minHeight="30.0" prefHeight="80.0" vgrow="SOMETIMES" />
@@ -177,36 +176,42 @@
                               <RowConstraints maxHeight="79.0" minHeight="30.0" prefHeight="80.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label text="Words:" textFill="WHITE" GridPane.rowIndex="2" />
-                              <Label fx:id="wordstat" alignment="BOTTOM_CENTER" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                              <Label text="Words:" textFill="WHITE" GridPane.rowIndex="1" />
+                              <Label fx:id="wordstat" alignment="BOTTOM_CENTER" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin></Label>
-                              <Label style="-fx-text-fill: #25D9FE;" text="Nouns:" textFill="WHITE" GridPane.rowIndex="3" />
-                              <Label style="-fx-text-fill: #F5410E;" text="Verbs:" textFill="WHITE" GridPane.rowIndex="4" />
-                              <Label fx:id="nounstat" style="-fx-text-fill: #25D9FE;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                              <Label fx:id="verbstat" style="-fx-text-fill: #F5410E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-                              <Label style="-fx-text-fill: #DAF7A6;" text="Conjuntives:" textFill="WHITE" GridPane.rowIndex="5" />
-                              <Label fx:id="conjstat" style="-fx-text-fill: #DAF7A6;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
-                              <Label style="-fx-text-fill: #FFE000;" text="Adjectives:" textFill="WHITE" GridPane.rowIndex="6" />
-                              <Label fx:id="adjstat" style="-fx-text-fill: #FFE000;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
-                              <Label style="-fx-text-fill: #00FF0E;" text="Adverbs:" textFill="WHITE" GridPane.rowIndex="7" />
-                              <Label fx:id="advstat" style="-fx-text-fill: #00FF0E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
-                              <Label style="-fx-text-fill: #CA0EF5;" text="Pronouns" GridPane.rowIndex="8" />
-                              <Label fx:id="prostat" style="-fx-text-fill: #CA0EF5;" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-                              <Label style="-fx-text-fill: FF0000;" text="Determinants" GridPane.rowIndex="9" />
-                              <Label fx:id="detstat" style="-fx-text-fill: FF0000;" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-                              <Label scaleX="1.25" scaleY="1.25" text="Statistics" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Label style="-fx-text-fill: #25D9FE;" text="Nouns:" textFill="WHITE" GridPane.rowIndex="2" />
+                              <Label style="-fx-text-fill: #F5410E;" text="Verbs:" textFill="WHITE" GridPane.rowIndex="3" />
+                              <Label fx:id="nounstat" style="-fx-text-fill: #25D9FE;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <Label fx:id="verbstat" style="-fx-text-fill: #F5410E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                              <Label style="-fx-text-fill: #DAF7A6;" text="Conjuntives:" textFill="WHITE" GridPane.rowIndex="4" />
+                              <Label fx:id="conjstat" style="-fx-text-fill: #DAF7A6;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                              <Label style="-fx-text-fill: #FFE000;" text="Adjectives:" textFill="WHITE" GridPane.rowIndex="5" />
+                              <Label fx:id="adjstat" style="-fx-text-fill: #FFE000;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                              <Label style="-fx-text-fill: #00FF0E;" text="Adverbs:" textFill="WHITE" GridPane.rowIndex="6" />
+                              <Label fx:id="advstat" style="-fx-text-fill: #00FF0E;" text="0" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                              <Label style="-fx-text-fill: #CA0EF5;" text="Pronouns" GridPane.rowIndex="7" />
+                              <Label fx:id="prostat" style="-fx-text-fill: #CA0EF5;" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                              <Label style="-fx-text-fill: FF0000;" text="Determinants" GridPane.rowIndex="8" />
+                              <Label fx:id="detstat" style="-fx-text-fill: FF0000;" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                              <Label scaleX="1.25" scaleY="1.25" style="-fx-font-size: 15px;" text="Statistics" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin></Label>
+                              <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                               <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                              <Line endX="244.0" endY="-130.0" startX="14.0" startY="-130.0" stroke="#333333" strokeWidth="4.0" translateX="-21.0" GridPane.valignment="BOTTOM" />
                               <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-                              <Line endX="244.0" endY="-130.0" startX="14.0" startY="-130.0" stroke="#333333" strokeWidth="4.0" translateX="-21.0" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                               <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
                               <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
                               <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
                               <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" />
                               <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="8" GridPane.valignment="BOTTOM" />
-                              <Line endX="1435.8680419921875" endY="252.87725830078125" startX="1212.6964111328125" startY="253.048828125" stroke="#333333" translateX="-21.0" GridPane.rowIndex="9" GridPane.valignment="BOTTOM" />
-                              <MFXProgressSpinner fx:id="progress2" opacity="0.0" prefHeight="35.0" prefWidth="30.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <MFXProgressSpinner fx:id="progress2" opacity="0.0" prefHeight="35.0" prefWidth="30.0" GridPane.halignment="RIGHT">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></MFXProgressSpinner>
                            </children>
                            <padding>
                               <Insets left="20.0" right="20.0" />
@@ -289,26 +294,22 @@
                                  </GridPane.margin>
                               </Text>
                               <Text id="info-header" fill="#dddddd" strokeType="OUTSIDE" strokeWidth="0.0" text="Information Page" GridPane.columnIndex="1" />
-                              <ImageView fitHeight="231.0" fitWidth="427.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                              <ImageView fitHeight="233.0" fitWidth="463.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                  <image>
                                     <Image url="@assets/pos.png" />
                                  </image>
                                  <GridPane.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" right="40.0" top="10.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <Pane prefHeight="254.0" prefWidth="465.0" GridPane.rowIndex="3">
-                                 <children>
-                                    <ImageView fitHeight="231.0" fitWidth="427.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="10.0">
-                                       <image>
-                                          <Image url="@assets/sentiment.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
+                              <ImageView fitHeight="233.0" fitWidth="463.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@assets/sentiment.png" />
+                                 </image>
                                  <GridPane.margin>
-                                    <Insets />
+                                    <Insets bottom="20.0" top="10.0" />
                                  </GridPane.margin>
-                              </Pane>
+                              </ImageView>
                            </children>
                         </GridPane>
                      </children></AnchorPane>
